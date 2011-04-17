@@ -7,6 +7,7 @@
     <th>Category</th>
     <th>Value</th>
     <th></th>
+    <th></th>
   </tr>
   <% character.tags.each do |tag| -%>
     <tr>
@@ -17,10 +18,10 @@
         <%= tag.value %>
       </td>
       <td>
-        [
-        <%= link_to 'Edit', edit_character_tag_path(tag.character,tag) %> |
+        <%= link_to 'Edit', edit_character_tag_path(tag.character,tag) %>
+      </td>
+      <td>
         <%= link_to 'Destroy', character_tag_path(tag.character,tag), :confirm => 'Are you sure?', :method => :delete %>
-        ]
       </td>
     </tr>
   <% end -%>
