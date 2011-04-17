@@ -5,20 +5,22 @@
     <th>Name</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @characters.each do |character| %>
   <tr>
     <td>
-      <%= character.name %>
+      <%= link_to character.name, character %>
       <% unless character.aliases.empty? -%>
         (<%= character.aliases.join(', ') %>)
       <% end -%>
     </td>
-    <td><%= link_to 'Show', character %></td>
-    <td><%= link_to 'Edit', edit_character_path(character) %></td>
-    <td><%= link_to 'Destroy', character, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      [
+      <%= link_to 'Edit', edit_character_path(character) %> |
+      <%= link_to 'Destroy', character, :confirm => 'Are you sure?', :method => :delete %>
+      ]
+    </td>
   </tr>
 <% end %>
 </table>
