@@ -3,10 +3,18 @@
 <h1><%= character.name %></h1>
 
 <table>
+  <tr>
+    <th>Category</th>
+    <th>Value</th>
+    <th></th>
+  </tr>
   <% character.tags.each do |tag| -%>
     <tr>
       <td>
-        <%= tag.category %>:<%= tag.value %>
+        <%= tag.category %>
+      </td>
+      <td>
+        <%= tag.value %>
       </td>
       <td>
         [
@@ -18,7 +26,9 @@
   <% end -%>
 </table>
 
-<%= link_to 'New Tag', new_character_tag_path(character) %> |
+<p>
+  <%= link_to 'New Tag', new_character_tag_path(character) %> |
 
-<%= link_to 'Edit', edit_character_path(character) %> |
-<%= link_to 'Back', characters_path %>
+  <%= link_to 'Edit', edit_character_path(character) %> |
+  <%= link_to 'Back', characters_path %>
+</p>
