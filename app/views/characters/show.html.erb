@@ -1,6 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @character.name %></h1>
+<h1><%= character.name %></h1>
 
-<%= link_to 'Edit', edit_character_path(@character) %> |
+<table>
+  <% character.tags.each do |tag| -%>
+    <tr>
+      <td>
+        <%= tag.category %>:<%= tag.value %>
+      </td>
+      <td>
+        [
+        <%= link_to 'Edit', edit_character_tag_path(tag.character,tag) %> |
+        <%= link_to 'Destroy', character_tag_path(tag.character,tag), :confirm => 'Are you sure?', :method => :delete %>
+        ]
+      </td>
+    </tr>
+  <% end -%>
+</table>
+
+<%= link_to 'New Tag', new_character_tag_path(character) %> |
+
+<%= link_to 'Edit', edit_character_path(character) %> |
 <%= link_to 'Back', characters_path %>

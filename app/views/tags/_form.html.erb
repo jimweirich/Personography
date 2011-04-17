@@ -1,0 +1,34 @@
+<p>
+  For <%= character.name %>:
+</p>
+
+<% $stdout.puts "DBG: tagg.character=#{tagg.character.id}" -%>
+<%= form_for([character,tagg]) do |f| %>
+  <% if tagg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tagg.errors.count, "error") %> prohibited this tag from being saved:</h2>
+
+      <ul>
+      <% tagg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :character_id %>
+
+  <p>
+    <%= f.label :category %>
+    <%= f.text_field :category %>
+  </p>
+
+  <p>
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
