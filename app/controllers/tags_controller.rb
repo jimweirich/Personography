@@ -5,7 +5,7 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.xml
   def index
-    tags = Tag.all
+    tags = Tag.sorted
 
     respond_to do |format|
       format.html # index.html.erb

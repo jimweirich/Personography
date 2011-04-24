@@ -1,7 +1,10 @@
 class Character < ActiveRecord::Base
-  has_many :tags, :order => "category, value", :dependent => :destroy do
+  has_many :tags, :dependent => :destroy do
     def matching(cat)
-      find(:all, :conditions => ["category=?", cat])
+      joins(:category).where("categories.name = ?", "aka")
+    end
+    def sorted
+      joins(:category).order("categories.sort_order, categories.name")
     end
   end
 

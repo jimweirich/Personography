@@ -9,10 +9,10 @@
     <th></th>
     <th></th>
   </tr>
-  <% character.tags.each do |tag| -%>
+  <% character.tags.sorted.each do |tag| -%>
     <tr>
       <td>
-        <%= tag.category %>
+        <%= tag.category.name %>
       </td>
       <td>
         <%= tag.value %>

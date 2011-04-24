@@ -20,7 +20,7 @@
 
   <p>
     <%= f.label :category %>
-    <%= f.text_field :category %>
+    <%= f.select :category_id, Category.to_select %>
   </p>
 
   <p>

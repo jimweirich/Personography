@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110417040723) do
+ActiveRecord::Schema.define(:version => 20110423215255) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name",                        :null => false
+    t.integer  "sort_order", :default => 100, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
 
   create_table "characters", :force => true do |t|
     t.string   "name"
@@ -20,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20110417040723) do
 
   create_table "tags", :force => true do |t|
     t.integer  "character_id"
-    t.string   "category",     :null => false
-    t.string   "value",        :null => false
+    t.string   "value",                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id",  :default => 0, :null => false
   end
 
 end
