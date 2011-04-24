@@ -17,6 +17,8 @@ Personography::Application.routes.draw do
     resources :tags
   end
 
+  resources :categories
+
   # Sample resource route with options:
   #   resources :products do
   #     member do
