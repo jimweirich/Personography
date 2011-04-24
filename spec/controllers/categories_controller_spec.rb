@@ -55,7 +55,7 @@ describe CategoriesController do
         assigns(:category).should be(category)
       end
 
-      it "redirects to the created category" do
+      it "redirects to the categories index" do
         flexmock(Category, :new => category(:save => true))
         post :create, :category => {}
         response.should redirect_to(categories_path)
@@ -97,7 +97,7 @@ describe CategoriesController do
         cat = category_at(1, :update_attributes => true)
         flexmock(Category, :find => cat)
         put :update, :id => "1"
-        response.should redirect_to(category_url(category))
+        response.should redirect_to(categories_path)
       end
     end
 
