@@ -9,7 +9,7 @@ class CreateCategories < ActiveRecord::Migration
     add_index :categories, [:name], :unique => true
 
     remove_column :tags, :category
-    add_column :tags, :category_id, :integer, :null => false, :default => ""
+    add_column :tags, :category_id, :integer, :null => true
   end
 
   def self.down
