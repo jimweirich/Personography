@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe CategoriesController do
   def category(stubs={})
-    @category ||= Factory.build(:category).tap { |cat| flexmock(cat, stubs) }
+    @category ||= Category.make.tap { |cat| flexmock(cat, stubs) }
   end
 
   def category_at(id, stubs={})

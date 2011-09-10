@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Category do
   context "factory creates valid categories" do
-    Given(:cat) { Factory.build(:category) }
+    Given(:cat) { Category.make }
     Then { cat.should be_valid }
   end
 
