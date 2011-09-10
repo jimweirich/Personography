@@ -4,4 +4,8 @@ class Tag < ActiveRecord::Base
 
   validates_presence_of :category
   validates_presence_of :value
+
+  def name
+    category.name
+  end
 end

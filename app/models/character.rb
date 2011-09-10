@@ -8,6 +8,10 @@ class Character < ActiveRecord::Base
     end
   end
 
+  has_many :categories, :through => :tags, :order => "sort_order"
+
+  validates_presence_of :name
+
   def aliases
     tags.matching("aka").map(&:value)
   end

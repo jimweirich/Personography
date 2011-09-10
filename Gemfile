@@ -35,7 +35,7 @@ group :development, :test do
   gem 'rspec', '~> 2.5'
   gem 'rspec-rails', '~> 2.5'
   gem 'rspec-given'
-  gem 'flexmock'
+  gem 'flexmock', :require => nil
   gem 'factory_girl_rails'
   gem 'pry'
   gem 'ruby-debug19'
