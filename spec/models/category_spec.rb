@@ -7,9 +7,8 @@ describe Category do
   end
 
   context "names are unique" do
-    Given(:cat1) { Category.create(:name => "CATNAME") }
+    Given!(:cat1) { Category.create(:name => "CATNAME") }
     Given(:cat2) { Category.new(:name => "CATNAME") }
-    Given { pending "Not sure why this is failing" }
     Then { cat2.should_not be_valid }
   end
 end
