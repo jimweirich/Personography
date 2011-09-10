@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Personography::Application.config.secret_token = 'ec6c5b854c9ea9b9c7c4e400fef8ae2d4e79f985904c23a9f8ab1793f51cb711acad5aa123df6b888de5c454a5b44a40585b7daaa708f5db74a51ccc73a04d33'
+Personography::Application.config.secret_token = 'ef278d795db8b5d95ccbe03f9e0119a397e4c748c6d26e98f2db3c6976d92ee7c31fbd7392a62d237fe7236b4277645b2035b3decf2c5c14ee715cea4ecd8183'

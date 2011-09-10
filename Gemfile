@@ -2,7 +2,7 @@
 
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.6'
+gem 'rails', '3.1.0'
 gem 'heroku'
 
 # Bundle edge Rails instead:
@@ -37,4 +37,6 @@ group :development, :test do
   gem 'rspec-given'
   gem 'flexmock'
   gem 'factory_girl_rails'
+  gem 'pry'
+  gem 'ruby-debug19'
 end
