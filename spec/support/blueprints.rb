@@ -9,6 +9,15 @@ require 'machinist/active_record'
 #   end
 
 Category.blueprint do
-  name { "group" }
+  name { "sample" }
   sort_order { 50 }
+end
+
+Character.blueprint do
+  name { "Bob" }
+end
+
+Tag.blueprint do
+  character { Character.make }
+  category { Category.make }
 end
