@@ -5,16 +5,16 @@
 <table>
   <% character.tags.sorted.each do |tag| -%>
     <tr>
-      <td>
+      <td class="label">
         <%= tag.category.name %>
       </td>
-      <td>
+      <td class="data">
         <%= tag.value %>
       </td>
-      <td>
+      <td class="link">
         <%= edit_link_to edit_character_tag_path(tag.character,tag) %>
       </td>
-      <td>
+      <td class="link">
         <%= delete_link_to character_tag_path(tag.character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}"  %>
       </td>
     </tr>
