@@ -17,4 +17,8 @@ class Category < ActiveRecord::Base
 
   scope :alphabetically, order(:name)
   scope :recently_changed, order("updated_at DESC")
+
+  def values
+    tags.map(&:value).uniq.sort
+  end
 end
