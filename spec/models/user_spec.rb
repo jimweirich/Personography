@@ -24,7 +24,7 @@ describe User do
 
     context "when email is not unique" do
       Given(:email) { "a@x.com" }
-      Given!(:preexisting_user) { User.make!(email: email) }
+      Given!(:preexisting_user) { User.make(email: email).in_db }
       Given(:duplicate_user) { User.make(email: email) }
       Then { duplicate_user.should be_invalid_on(:email, message: /already.*taken/) }
     end
@@ -58,7 +58,7 @@ describe User do
     context "without passwords" do
       Given { User.delete_all }
       Given(:name) { "ebenezer" }
-      Given(:original_user) { User.make!(name: name, password: "secret", password_confirmation: "secret") }
+      Given(:original_user) { User.make(name: name, password: "secret", password_confirmation: "secret").in_db }
       Given(:reloaded_user) { User.find_by_name(name) }
       Then { reloaded_user.should be_valid_model }
       Then { reloaded_user.password_digest.should == original_user.password_digest }
