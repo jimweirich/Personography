@@ -23,6 +23,7 @@ Personography::Application.routes.draw do
 
   resources :categories
   resources :users
+  resources :sessions
 
 
   # Sample resource route with options:
