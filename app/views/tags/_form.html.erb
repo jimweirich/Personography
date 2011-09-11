@@ -4,36 +4,26 @@
 
 <% $stdout.puts "DBG: tagg.character=#{tagg.character.id}" -%>
 <%= form_for([character,tagg]) do |f| %>
-  <% if tagg.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tagg.errors.count, "error") %> prohibited this tag from being saved:</h2>
+<%= render "shared/errors", model: tagg %>
 
-      <ul>
-      <% tagg.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= f.hidden_field :character_id %>
+
+<p>
+  <%= f.label :category %>
+  <% if tagg.new_record?  %>
+  <%= f.select :category_id, Category.to_select %>
+  <% else %>
+  <%= tagg.name %>
   <% end %>
+</p>
 
-  <%= f.hidden_field :character_id %>
+<p>
+  <%= f.label :value %>
+  <%= f.text_field :value %>
+</p>
 
-  <p>
-    <%= f.label :category %>
-    <% if tagg.new_record?  %>
-    <%= f.select :category_id, Category.to_select %>
-    <% else %>
-    <%= tagg.name %>
-    <% end %>
-  </p>
-
-  <p>
-    <%= f.label :value %>
-    <%= f.text_field :value %>
-  </p>
-
-  <div class="actions">
-    <%= f.submit %>
-    <%= link_to "Cancel", character %>
-  </div>
+<div class="actions">
+  <%= f.submit %>
+  <%= link_to "Cancel", character %>
+</div>
 <% end %>

@@ -12,6 +12,9 @@ $header-link-color: #FFF;
 $banner-text-color: #777;
 $hint-text-color: #777;
 
+$notice-bg-color: #DEE600;
+$alert-bg-color: #FFA8A8;
+
 $sidebar-text-color: #777;
 $sidebar-link-color: #000;
 
@@ -454,7 +457,7 @@ table.records .alt td {
 #flash_alert {
     padding: 1em;
     text-align: center;
-    color: #fff;
+    color: #000;
 }
 
 #flash_notice p,
@@ -464,11 +467,11 @@ table.records .alt td {
 }
 
 #flash_notice {
-    background: #20a64c;
+    background: $notice-bg-color;
 }
 
 #flash_alert {
-    background: #d9715d;
+    background: $alert-bg-color;
 }
 
 /* ERRORS */

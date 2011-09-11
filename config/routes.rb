@@ -1,6 +1,4 @@
 Personography::Application.routes.draw do
-  resources :users
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -24,6 +22,8 @@ Personography::Application.routes.draw do
   end
 
   resources :categories
+  resources :users
+
 
   # Sample resource route with options:
   #   resources :products do

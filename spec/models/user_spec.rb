@@ -47,6 +47,7 @@ describe User do
   end
 
   context "when saving" do
+    before { pending }
     context "with passwords" do
       Given(:user) { User.make(password: "secret", password_confirmation: "secret") }
       When(:save_result) { user.save }
@@ -59,7 +60,6 @@ describe User do
       Given(:name) { "ebenezer" }
       Given(:original_user) { User.make!(name: name, password: "secret", password_confirmation: "secret") }
       Given(:reloaded_user) { User.find_by_name(name) }
-      Then { require 'pry'; binding.pry }
       Then { reloaded_user.should be_valid_model }
       Then { reloaded_user.password_digest.should == original_user.password_digest }
     end

@@ -1,0 +1,8 @@
+<h1>
+  Account for <%= user.name %>
+  <%= delete_link_to user_path(user), target: "Account for #{user.name}" %>
+</h1>
+
+<p>
+  Email: <%= user.email %> <%= edit_link_to edit_user_path(user) %>
+</p>

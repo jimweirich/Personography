@@ -73,7 +73,7 @@ class TagsController < ApplicationController
     tagg.destroy
 
     respond_to do |format|
-      format.html { redirect_to(character_url(character)) }
+      format.html { redirect_to character_url(character), notice: "Tag has been deleted." }
       format.xml  { head :ok }
     end
   end
