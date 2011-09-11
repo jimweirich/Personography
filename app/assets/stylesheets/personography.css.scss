@@ -277,51 +277,6 @@ a img {
     }
 }
 
-/* EVENTS */
-
-div.event {
-    margin: 0;
-    padding-bottom: 1.75em;
-    margin-bottom: 1.75em;
-    border-bottom: 1px dotted $main-bg-outline-color;
-
-    p {
-        margin: .35em 0;
-        font-size: 1.15em;
-    }
-
-    img.event {
-        padding-top: 25px;
-        padding-left: 15px;
-        float: right;
-    }
-
-    p.button {
-        margin-top: 1em;
-        margin-left: 8em;
-        font-style: bold;
-        text-transform: uppercase;
-    }
-
-    table {
-        margin-top: 1.5em;
-        width: 75%;
-        line-height: 1.5em;
-        font-size: 1.10em;
-
-        th {
-            width: 25%;
-            text-align: right;
-            vertical-align: top;
-        }
-
-        td {
-            width: 75%;
-            padding-left: 1em;
-        }
-    }
-}
-
 /* FORMS */
 
 form {
