@@ -34,4 +34,10 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'pry', :require => false
+  gem 'machinist'
+  gem 'webrat'
+  gem 'rspec', '~> 2.5'
+  gem 'rspec-rails', '~> 2.5'
+  gem 'rspec-given'
+  gem 'flexmock'
 end

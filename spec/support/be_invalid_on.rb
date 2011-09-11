@@ -1,4 +1,4 @@
-RSpec::Matchers.define :be_invalid_on do |field, expected_message=nil|
+RSpec::Matchers.define :be_invalid_on do |field, options={}|
   match do |model|
     if model.valid?
       @message = "Expected #{model} to be invalid"
@@ -8,8 +8,8 @@ RSpec::Matchers.define :be_invalid_on do |field, expected_message=nil|
       false
     else
       error_messages = model.errors[field].join(', ')
-      if expected_message && expected_message !~ error_messages
-        @message = "Expected error messages (#{error_messages}) to match #{expected_message}"
+      if options[:message] && options[:message] !~ error_messages
+        @message = "Expected error messages (#{error_messages}) to match #{options[:message]}"
         false
       else
         true
@@ -22,6 +22,6 @@ RSpec::Matchers.define :be_invalid_on do |field, expected_message=nil|
   end
 
   failure_message_for_should_not do |actual|
-    fail "do not use 'should_not' with be_invalid_on"
+    fail "do not use 'should_not' with be_invalid_on (use be_valid_model instead)"
   end
 end

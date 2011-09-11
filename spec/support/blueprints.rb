@@ -21,3 +21,9 @@ Tag.blueprint do
   character { Character.make }
   category { Category.make }
 end
+
+User.blueprint do
+  name { "Bob" }
+  email { "bob@sample.com" }
+  password { "secret" }
+end

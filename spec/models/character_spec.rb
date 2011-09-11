@@ -7,7 +7,7 @@ describe Character do
   describe "requires a name" do
     Given(:character) { Character.new(default_attrs.merge(:name => nil)) }
     Then {
-      character.should be_invalid_on(:name, /blank/i)
+      character.should be_invalid_on(:name, message: /blank/i)
     }
   end
 

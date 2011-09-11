@@ -1,4 +1,6 @@
 Personography::Application.routes.draw do
+  resources :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +14,10 @@ Personography::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  get "signup" => "users#new",        :as => "signup"
+  get "login"  => "sessions#new",     :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
 
   resources :characters do
     resources :tags
