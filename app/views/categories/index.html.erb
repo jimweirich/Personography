@@ -1,6 +1,4 @@
-<h1>Listing categories</h1>
-
-<p id="notice"><%= notice %></p>
+<h1>Categories</h1>
 
 <table>
   <tr>
@@ -11,13 +9,16 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= link_to category.name, edit_category_path(category) %></td>
+    <td><%= link_to category.name, category_path(category) %></td>
     <td><%= category.sort_order %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <%= edit_link_to edit_category_path(category) %>
+      <%= delete_link_to category, target: "Category #{category.name}" %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Category', new_category_path %>
+

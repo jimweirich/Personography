@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
   has_many :tags
+  has_many :characters, :through => :tags
 
   validates_presence_of :name
   validates_uniqueness_of :name
@@ -13,4 +14,7 @@ class Category < ActiveRecord::Base
     [["-- Select Category --", 0]] +
       order("name").map { |cat| [cat.name, cat.id] }
   end
+
+  scope :alphabetically, order(:name)
+  scope :recently_changed, order("updated_at DESC")
 end

@@ -12,6 +12,9 @@ class Character < ActiveRecord::Base
 
   validates_presence_of :name
 
+  scope :alphabetically, order(:name)
+  scope :recently_changed, order("updated_at DESC")
+
   def aliases
     tags.matching("aka").map(&:value)
   end

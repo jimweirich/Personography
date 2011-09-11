@@ -1,14 +1,8 @@
-<p id="notice"><%= notice %></p>
+<h1><%= character.name %> <%= edit_link_to edit_character_path(character) %></h1>
 
-<h1><%= character.name %></h1>
+<h2>Tags <%= add_link_to nil, new_character_tag_path(character) %></h2>
 
 <table>
-  <tr>
-    <th>Category</th>
-    <th>Value</th>
-    <th></th>
-    <th></th>
-  </tr>
   <% character.tags.sorted.each do |tag| -%>
     <tr>
       <td>
@@ -18,18 +12,11 @@
         <%= tag.value %>
       </td>
       <td>
-        <%= link_to 'Edit', edit_character_tag_path(tag.character,tag) %>
+        <%= edit_link_to edit_character_tag_path(tag.character,tag) %>
       </td>
       <td>
-        <%= link_to 'Destroy', character_tag_path(tag.character,tag), :confirm => 'Are you sure?', :method => :delete %>
+        <%= delete_link_to character_tag_path(tag.character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}"  %>
       </td>
     </tr>
   <% end -%>
 </table>
-
-<p>
-  <%= link_to 'New Tag', new_character_tag_path(character) %> |
-
-  <%= link_to 'Edit', edit_character_path(character) %> |
-  <%= link_to 'Back', characters_path %>
-</p>

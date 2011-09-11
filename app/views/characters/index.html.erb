@@ -1,13 +1,6 @@
 <h1>Wheel of Time Characters</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
   <% @characters.each do |character| %>
     <tr>
       <td>
@@ -17,15 +10,11 @@
         <% end -%>
       </td>
       <td>
-        <%= link_to 'Edit', edit_character_path(character) %>
+        <%= edit_link_to edit_character_path(character) %>
       </td>
       <td>
-        <%= link_to 'Destroy', character, confirm: 'Are you sure?', method: :delete %>
+        <%= delete_link_to character %>
       </td>
     </tr>
   <% end %>
 </table>
-
-<p>
-  <%= link_to 'New Character', new_character_path %>
-</p>

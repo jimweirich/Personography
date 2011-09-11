@@ -1,0 +1,483 @@
+
+/*
+ * The Pragmatic Studio
+ * http://pragmaticstudio.com
+ * Copyright (c) 2011 The Pragmatic Studio
+ *
+ * Please don't use this exact layout and style 
+ * combination in your applications.
+ */
+
+$primary-background-color: #F5F5F5;
+$primary-background-outline-color: #CCC;
+$secondary-background-color: #237CBE;
+$secondary-background-outline-color: #195E92;
+$primary-text-color: #444;
+$secondary-text-color: #777;
+$primary-link-color: #2E6AA0;
+$secondary-link-color: #FFF;
+$table-alt-color: #F1F1F1;
+$errors-background-color: #FFDCDC;
+$errors-text-color: #DC3D3D;
+
+* {
+ 	margin: 0;
+ 	padding: 0;
+}
+
+body {
+  background: $primary-background-color;  
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  font-size: small;
+  color: $primary-text-color;
+}
+
+img {
+  border: 0;
+  border-width: 0;
+}
+
+img.button {
+  display: block;
+}
+
+a:hover img.button {
+  opacity: .75;
+}
+
+.clear {
+  clear: both;
+  overflow: hidden;
+  height: 0px;
+  display: block;
+}
+
+.break {
+  border-top: 2px dotted $primary-background-outline-color;
+  margin: 1.5em 0;
+}
+
+p {
+  line-height: 1.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+ul, ol {
+  margin-left: 2em;
+  line-height: 1.5em;
+}
+
+/* LINKS */
+
+a {
+  text-decoration: underline;
+}
+
+a:link, 
+a:visited {
+  color: $primary-link-color;
+}
+
+a:hover, 
+a:active {
+  text-decoration: none;
+  color: $secondary-link-color;
+  background: $secondary-background-color;
+}
+
+a img {
+  border: 0;
+}
+
+/* LAYOUT */
+
+#wrapper {
+	width: 60em;
+	margin: 25px auto;
+}
+
+#header {
+  background: $secondary-background-color;
+  border-bottom: 3px solid $secondary-background-outline-color;
+  font-size: 1.15em;
+  
+  #logo {
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+  }
+
+  #logo span, #logo a {
+    background: $secondary-background-color;
+    display: block;
+    width: 158px;
+    height: 80px;
+    border-style: none;
+  }
+  
+  #navigation {
+    text-align: right;  
+    height: 80px;
+
+    p {
+      color: $primary-background-outline-color;
+      padding-top: 30px;
+      padding-right: 25px;
+      margin: 0;
+      margin-left: 200px;
+    }
+
+    a {
+      color: $secondary-link-color;
+      display: inline-block;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      text-decoration: none;    
+    }
+
+    a:hover {
+      text-decoration: underline;
+      background: $secondary-background-color;
+    }
+
+    .separator {
+      color: $primary-background-outline-color;
+      display: inline-block;
+      padding: 3px 5px;
+    }
+  }
+}
+
+#sidebar {
+  width: 15em;
+  float: right;
+  
+  h3 {
+    color: $secondary-text-color;
+    font-size: 1em;
+    font-weight: 600;  
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 1px solid $primary-background-outline-color;
+    line-height: 1.5em;
+    margin-bottom: .5em;
+  }
+
+  ul {
+    margin: 0 0 1.5em 0;
+    padding: 0;
+    line-height: 1.5em;
+    list-style: none;
+    
+    a, 
+    a:link, 
+    a:visited {
+      padding: 2px;
+      text-decoration: none;
+    }
+    
+    li {
+      margin: 0 0 .25em 0;
+      padding: 2px 0;
+      list-style: none;
+      font-size: 1.10em;
+      
+      img {
+        vertical-align: top;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+#content {
+  width: 40em;
+  float: left;
+  padding: 1em;
+  margin-left: 1em;
+  background: #fff;
+  border: 1px solid $primary-background-outline-color;
+  
+  #banner {
+    background: $primary-background-color;
+    margin: -1em;
+    border-bottom: 2px solid darken($primary-background-color, 20%);
+    padding: 1em;
+
+    h1 {
+      font-size: 2em;  
+    }
+
+    p {
+      margin: .5em 0;
+      font-size: 1.15em;
+      color: $secondary-text-color !important;
+    }
+  }
+  
+  #link-menu {
+    text-align: center;  
+    margin: 1em 0;
+  }
+}
+
+#footer {
+	color: #fff;
+  background: $secondary-background-color;
+	border-top: 3px solid $secondary-background-outline-color;
+  padding: 1.25em;
+	font-size: .95em;
+  
+  p {
+    margin: .25em 0;
+    text-align: center;
+    color: $primary-background-outline-color;
+  }
+  
+  a {
+    color: $secondary-link-color;
+    text-decoration: none;    
+  }
+
+  a:hover {
+    text-decoration: underline;
+    background: $secondary-background-color;
+  }
+}
+
+/* EVENTS */
+
+div.event {
+  margin: 0;
+  padding-bottom: 1.75em;
+  margin-bottom: 1.75em;
+  border-bottom: 1px dotted $primary-background-outline-color;
+  
+  p {
+    margin: .35em 0;
+    font-size: 1.15em;
+  }
+  
+  img.event {
+    padding-top: 25px;
+    padding-left: 15px;
+    float: right;
+  }
+  
+  p.button {
+    margin-top: 1em;
+    margin-left: 8em;
+    font-style: bold;
+    text-transform: uppercase;
+  }
+  
+  table {
+    margin-top: 1.5em;
+    width: 75%;
+    line-height: 1.5em;
+    font-size: 1.10em;
+    
+    th {
+      width: 25%;
+      text-align: right;
+      vertical-align: top;
+    }
+
+    td {
+      width: 75%;
+      padding-left: 1em;
+    }
+  }
+}
+
+/* FORMS */
+
+form {
+  padding: 0;
+  margin: 0;
+  
+  fieldset {
+    border: 0;
+    margin: 1em 0;
+    padding: 1em;
+  }
+  
+  label {
+    color: $primary-text-color;
+    display: block;
+    font-size: 1.2em;
+    font-weight: normal;
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    margin-top: 0.75em;
+  }
+  
+  label.required {
+    font-weight: bold;  
+  }
+  
+  div.field {
+    padding: 0.5em 0em;
+  }
+  
+  label:after {
+    content: ":"
+  }
+  
+  .required-fields label {
+    font-weight: bold;
+  }
+  
+  .hint {
+    color: $secondary-text-color;
+    display: block;
+    font-size: 0.9em;
+    font-style: italic;  
+  }
+  
+  input {
+    margin-top: 0px;
+    padding-top: 0px;
+    font-size: 110%;
+  }
+
+  textarea {
+    font-size: 110%; 
+  }
+
+  select {
+    font-size: 110%; 
+  }
+
+  .actions {
+    border-top: 2px dotted $primary-background-outline-color;
+    margin-top: 1em;
+    padding-top: 1.5em;
+  }
+
+  .actions button,
+  .actions input {
+    font-size: 140%;
+  }
+
+  input:focus,
+  textarea:focus {
+    background: #ffc;
+  }
+}
+
+/* TABLES */
+
+table {
+  border-collapse: collapse;
+  border: none;
+  padding: 0;
+  line-height: 1.25em;
+}
+
+table.auto-width {
+   width: auto;
+}
+
+table.records {
+  width: 100%;
+}
+
+table.records.no-heading {
+  margin-top: 2em;
+}
+
+table.records th,
+table.records td {
+  padding: 1em .5em;
+  border-bottom: none;
+}
+
+table.records th {
+  background: $primary-background-outline-color;
+  color: $primary-text-color;
+  padding: 10px 0;
+  border-bottom: 0;
+  text-transform: uppercase;
+}
+
+table.records.show th,
+table.records.show td {
+  padding: 1em .5em;
+  border-bottom: 2px solid #ececec;
+}
+
+table.records.show td.attribute {
+  text-align: right;
+  font-weight: bold;
+  background: $table-alt-color;
+  width: 30%;
+  padding-right: 1em;
+}
+
+table.records .alt td {
+  background: $table-alt-color;
+}
+
+/* FLASHES */
+
+#flash_notice,
+#flash_alert {
+  padding: 1em;
+  text-align: center;
+  color: #fff;
+}
+
+#flash_notice p,
+#flash_alert p {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+#flash_notice {
+  background: #20a64c;
+}
+
+#flash_alert {
+  background: #d9715d;
+}
+
+/* ERRORS */
+
+#errors {
+  margin: 1em -1em;
+  padding: 1em;  
+  background: $errors-background-color;
+  
+  h3 {
+    color: $errors-text-color;
+    font-size: 1.25em;
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    margin: .5em 0;
+    font-weight: bold;
+  }
+
+  ul {
+    margin-top: 1em;
+    margin-left: 2em;
+  }
+}
+
+/* SELF-CLEARING FLOATS */
+
+#header:after,
+#footer:after,
+#wrapper:after,
+#event:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

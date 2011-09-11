@@ -20,7 +20,11 @@
 
   <p>
     <%= f.label :category %>
+    <% if tagg.new_record?  %>
     <%= f.select :category_id, Category.to_select %>
+    <% else %>
+    <%= tagg.name %>
+    <% end %>
   </p>
 
   <p>
@@ -30,5 +34,6 @@
 
   <div class="actions">
     <%= f.submit %>
+    <%= link_to "Cancel", character %>
   </div>
 <% end %>

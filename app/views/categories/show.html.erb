@@ -1,5 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  CATEGORY <%= @category.name %>
+  <%= edit_link_to edit_category_path(@category) %>
+</h1>
 
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<ul>
+  <% @category.tags.each do |tagg| %>
+  <li>
+    <%= link_to tagg.character.name, tagg.character %>
+    (<%= tagg.value %>
+    <%= edit_link_to edit_character_tag_path(tagg.character, tagg) %>)
+  </li>
+  <% end %>
+</ul>

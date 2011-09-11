@@ -1,5 +1,2 @@
-<p id="notice"><%= notice %></p>
+<h1>TAG <%= @tag.name %> <%= edit_link_to edit_character_tag_path(character,@tag) %></h1>
 
-
-<%= link_to 'Edit', edit_character_tag_path(character,@tag) %> |
-<%= link_to 'Back', character_path(character) %>
