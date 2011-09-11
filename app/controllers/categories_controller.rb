@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :edit, :update]
-
   # GET /categories
   # GET /categories.xml
   def index

@@ -1,6 +1,4 @@
 class CharactersController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :edit, :update]
-
   assume(:character) { Character.find(params[:id]) }
 
   # GET /characters
