@@ -47,7 +47,6 @@ describe User do
   end
 
   context "when saving" do
-    before { pending }
     context "with passwords" do
       Given(:user) { User.make(password: "secret", password_confirmation: "secret") }
       When(:save_result) { user.save }
@@ -56,6 +55,7 @@ describe User do
     end
 
     context "without passwords" do
+      Given { pending "getting a nil object unexpectedly" }
       Given { User.delete_all }
       Given(:name) { "ebenezer" }
       Given(:original_user) { User.make(name: name, password: "secret", password_confirmation: "secret").in_db }
