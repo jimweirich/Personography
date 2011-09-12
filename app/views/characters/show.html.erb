@@ -6,7 +6,7 @@
   <% character.tags.sorted.each do |tag| -%>
     <tr>
       <td class="label">
-        <%= tag.category.name %>
+        <%= link_to tag.category.name, tag.category %>
       </td>
       <td class="data">
         <%= tag.value %>

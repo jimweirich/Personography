@@ -4,9 +4,10 @@
 </h1>
 
 <ul>
-  <% @category.values.each do |value| %>
+  <% @category.value_map.each do |value, characters| %>
   <li>
-    <%= value %>
+    <%= value %><br />
+    <%= characters.map { |c| link_to(c.name, c) }.join(', ').html_safe %>
   </li>
   <% end %>
 </ul>

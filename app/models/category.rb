@@ -21,4 +21,21 @@ class Category < ActiveRecord::Base
   def values
     tags.map(&:value).uniq.sort
   end
+
+  def value_map
+    value_pairs = tags.map { |t| [t.value, t.character] }
+    mapping = new_hash_of_arrays
+    value_pairs.each do |value, character|
+      mapping[value] << character
+    end
+    mapping.map { |value, characters|
+      [value, characters.sort_by { |c| c.name }]
+    }.sort
+  end
+
+  private
+
+  def new_hash_of_arrays
+    Hash.new { |h, k| h[k] = [] }
+  end
 end
