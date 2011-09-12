@@ -11,7 +11,7 @@
 <p>
   <%= f.label :category %>
   <% if tagg.new_record?  %>
-  <%= f.select :category_id, Category.to_select %>
+  <%= f.select :category_id, Category.to_select, {}, class: "focus" %>
   <% else %>
   <%= tagg.name %>
   <% end %>
@@ -19,7 +19,7 @@
 
 <p>
   <%= f.label :value %>
-  <%= f.text_field :value %>
+  <%= f.text_field :value, class: 'focus' %>
 </p>
 
 <div class="actions">

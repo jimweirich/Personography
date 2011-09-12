@@ -1,0 +1,2 @@
+$ ->
+  $('.focus:first').focus()

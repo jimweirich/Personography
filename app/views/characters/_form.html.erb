@@ -1,7 +1,7 @@
 <%= form_for(character) do |f| %>
 <%= render "shared/errors", model: character %>
 
-  <%= f.text_field(:name, :size => 20) %>
+  <%= f.text_field(:name, size: 20, class: 'focus') %>
 
   <div class="actions">
     <%= f.submit %>
