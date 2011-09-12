@@ -1,5 +1,5 @@
 <div id="sidebar">
-  <h3><%= link_to "Characters", characters_path %> <%= add_link_to "", new_character_path %></h3>
+  <h3><%= link_to "<b>C</b>haracters".html_safe, characters_path, accesskey: 'c' %> <%= add_link_to "", new_character_path %></h3>
   <ul>
     <% @sidebar_characters.each do |character| %>
     <li><%= link_to character.name, character %></li>
@@ -7,7 +7,7 @@
     <li><%= link_to "more ...", characters_path %></li>
   </ul>
 
-  <h3><%= link_to "Categories", categories_path %> <%= add_link_to "", new_category_path %></h3>
+  <h3><%= link_to "C<b>a</b>tegories".html_safe, categories_path, accesskey: 'a' %> <%= add_link_to "", new_category_path %></h3>
   <ul>
     <% @sidebar_categories.each do |category| %>
     <li><%= link_to category.name, category %></li>

@@ -1,6 +1,6 @@
 <h1><%= character.name %> <%= edit_link_to edit_character_path(character) %></h1>
 
-<h2>Tags <%= add_link_to nil, new_character_tag_path(character) %></h2>
+<h2>Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: '9' %></h2>
 
 <table>
   <% character.tags.sorted.each do |tag| -%>
