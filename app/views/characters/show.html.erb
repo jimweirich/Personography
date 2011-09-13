@@ -2,19 +2,17 @@
 
 <h2>Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: 'n' %></h2>
 
-<ul>
-  <% character.category_map.each do |cat, tags| -%>
-  <li>
-    <span class="label"><%= link_to cat.name, cat %>:</span>
-    <ul>
-      <% tags.each do |tag| %>
-      <li>
-        <span class="data"><%= tag.value %></span>
-        <span class="link"><%= edit_link_to edit_character_tag_path(character,tag) %></span>
-        <span class="link"><%= delete_link_to character_tag_path(character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}"  %></span>
-      </li>
-      <% end %>
-    </ul>
-  </li>
-  <% end -%>
-</ul>
+<% character.category_map.each do |cat, tags| -%>
+<p>
+  <span class="label"><%= link_to cat.name, cat %>:</span>
+  <ul>
+    <% tags.each do |tag| %>
+    <li>
+      <span class="data"><%= tag.value %></span>
+      <span class="link"><%= edit_link_to edit_character_tag_path(character,tag) %></span>
+      <span class="link"><%= delete_link_to character_tag_path(character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}"  %></span>
+    </li>
+    <% end %>
+  </ul>
+</p>
+<% end -%>

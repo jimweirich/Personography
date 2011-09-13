@@ -250,10 +250,15 @@ a img {
             padding-left: 4px;
             padding-right: 4px;
         }
-        td.label {
+        tdlabel {
             vertical-align: text-top;
             font-weight: bold;
         }
+    }
+    .label {
+        vertical-align: text-top;
+        font-weight: bold;
+        font-size: 110%;
     }
 }
 
