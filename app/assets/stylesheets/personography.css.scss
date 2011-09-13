@@ -1,4 +1,5 @@
 $main-bg-color: #D5F5DA;
+$main-banding-bg-color: darken($main-bg-color, 2);
 $main-bg-outline-color: darken($main-bg-color, 30);
 $main-text-color: #444;
 $main-link-color: #2E6AA0;
@@ -242,6 +243,9 @@ a img {
     }
 
     table {
+        tr.odd {
+            background: $main-banding-bg-color;
+        }
         td {
             padding-left: 4px;
             padding-right: 4px;
@@ -253,12 +257,25 @@ a img {
     }
 }
 
+.hints {
+    h1, h2, p, ul {
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+}
+
 #footer {
     color: #fff;
     background: $header-bg-color;
     border-top: 3px solid $header-bg-outline-color;
     padding: 1.25em;
     font-size: .95em;
+
+    p.hints {
+        float: right;
+        color: black;
+        a { color: black; }
+    }
 
     p {
         margin: .25em 0;

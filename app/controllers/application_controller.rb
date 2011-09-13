@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def load_characters
-    @sidebar_characters = Character.recently_changed.alphabetically.limit(3)
+    @sidebar_characters = Character.recently_changed.alphabetically.limit(5)
   end
 
   def load_categories

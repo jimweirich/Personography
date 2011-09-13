@@ -3,19 +3,19 @@
 
 <table>
   <% @characters.each do |character| %>
-    <tr>
-      <td>
-        <%= link_to character.name, character %>
-        <% unless character.aliases.empty? -%>
-          (<%= character.aliases.join(', ') %>)
-        <% end -%>
-      </td>
-      <td>
-        <%= edit_link_to edit_character_path(character) %>
-      </td>
-      <td>
-        <%= delete_link_to character %>
-      </td>
-    </tr>
+  <tr class= <%= cycle("odd", "even") %>>
+    <td>
+      <%= link_to character.name, character %>
+      <% unless character.aliases.empty? -%>
+      (<%= character.aliases.join(', ') %>)
+      <% end -%>
+    </td>
+    <td>
+      <%= edit_link_to edit_character_path(character) %>
+    </td>
+    <td>
+      <%= delete_link_to character %>
+    </td>
+  </tr>
   <% end %>
 </table>

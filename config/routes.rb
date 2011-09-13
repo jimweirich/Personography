@@ -1,4 +1,6 @@
 Personography::Application.routes.draw do
+  get "hints/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -24,7 +26,7 @@ Personography::Application.routes.draw do
   resources :categories
   resources :users
   resources :sessions
-
+  resources :hints, only: 'index'
 
   # Sample resource route with options:
   #   resources :products do
