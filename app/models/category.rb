@@ -22,6 +22,12 @@ class Category < ActiveRecord::Base
     tags.map(&:value).uniq.sort
   end
 
+  # Returns a list of elements with the following form:
+  #
+  #    [value, [char1, char2...]]
+  #
+  # Values will be sorted alphabetically.  Within the character lists,
+  # characters will also be sorted alphabetically.
   def value_map
     value_pairs = tags.map { |t| [t.value, t.character] }
     mapping = new_hash_of_arrays

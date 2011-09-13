@@ -37,7 +37,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'pry', :require => false
-  gem 'machinist'
+  gem 'machinist', '= 2.0.0.beta2'
   gem 'webrat'
   gem 'rspec', '~> 2.5'
   gem 'rspec-rails', '~> 2.5'
