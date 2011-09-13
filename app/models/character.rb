@@ -18,4 +18,31 @@ class Character < ActiveRecord::Base
   def aliases
     tags.matching("aka").map(&:value)
   end
+
+  # Return a list of elements with the form:
+  #
+  #      [category_name, [value, value ...]]
+  #
+  # The categories will be listed in sort order and the values will be
+  # listed alphabetically.
+  def category_map
+    value_pairs = tags.map { |tag| [tag.category, tag] }.sort
+    result = []
+    last_cat = nil
+    value_pairs.each do |cat, tag|
+      if cat == last_cat
+        result.last[1] << tag
+      else
+        result << [cat, [tag]]
+        last_cat = cat
+      end
+    end
+    result
+  end
+
+  private
+
+  def new_hash_of_arrays
+    Hash.new { |h, k| h[k] = [] }
+  end
 end

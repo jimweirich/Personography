@@ -43,4 +43,15 @@ describe Category do
       ]
     }
   end
+
+  describe "sorting" do
+    Given(:cat_a20) { Category.make(name: "A", sort_order: 20) }
+    Given(:cat_b10) { Category.make(name: "B", sort_order: 10) }
+    Given(:cat_a10) { Category.make(name: "A", sort_order: 10) }
+
+    Then { cat_a10.should < cat_b10 }
+    Then { cat_b10.should > cat_a10 }
+    Then { cat_a10.should < cat_a20 }
+    Then { cat_a20.should > cat_a10 }
+  end
 end

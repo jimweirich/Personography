@@ -1,4 +1,6 @@
 class Category < ActiveRecord::Base
+  include Comparable
+
   has_many :tags
   has_many :characters, :through => :tags
 
@@ -37,6 +39,10 @@ class Category < ActiveRecord::Base
     mapping.map { |value, characters|
       [value, characters.sort_by { |c| c.name }]
     }.sort
+  end
+
+  def <=>(other)
+    (sort_order <=> other.sort_order).nonzero? || (name <=> other.name)
   end
 
   private

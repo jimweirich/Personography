@@ -33,4 +33,26 @@ describe Character do
       Then { character.aliases.should == ["John"] }
     end
   end
+
+  describe "category_map" do
+    Given(:bob)   { Character.new(name: "bob") }
+    Given(:group) { Category.make(name: "group", sort_order: 10) }
+    Given(:from)  { Category.make(name: "from",  sort_order: 20) }
+
+    Given(:t1) { Tag.new(category: group, value: 'B') }
+    Given(:t2) { Tag.new(category: group, value: 'A') }
+    Given(:t3) { Tag.new(category: from,  value: 'F') }
+
+    Given { bob.tags << [t1, t2, t3] }
+
+    When(:mapping) { bob.category_map }
+
+    Then {
+      mapping.should == [
+        [group, [t2, t1]],
+        [from, [t3]],
+      ]
+    }
+  end
+
 end

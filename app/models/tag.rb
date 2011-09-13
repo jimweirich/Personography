@@ -8,4 +8,8 @@ class Tag < ActiveRecord::Base
   def name
     category.name
   end
+
+  def <=>(other)
+    value <=> other.value
+  end
 end
