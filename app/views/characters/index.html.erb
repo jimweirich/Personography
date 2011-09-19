@@ -3,7 +3,7 @@
 
 <table>
   <% @characters.each do |character| %>
-  <tr class= <%= cycle("odd", "even") %>>
+  <tr class="<%= cycle("odd", "even") %> mousehide">
     <td>
       <%= link_to character.name, character %>
       <% unless character.aliases.empty? -%>
@@ -11,10 +11,10 @@
       <% end -%>
     </td>
     <td>
-      <%= edit_link_to edit_character_path(character) %>
+      <%= edit_link_to edit_character_path(character), class: "link" %>
     </td>
     <td>
-      <%= delete_link_to character %>
+      <%= delete_link_to character, class:"link" %>
     </td>
   </tr>
   <% end %>

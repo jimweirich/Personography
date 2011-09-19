@@ -243,6 +243,7 @@ a img {
     }
 
     table {
+        tr { height: 20px; }
         tr.odd {
             background: $main-banding-bg-color;
         }

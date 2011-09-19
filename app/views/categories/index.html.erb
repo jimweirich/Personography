@@ -9,12 +9,12 @@
   </tr>
 
 <% @categories.each do |category| %>
-  <tr class= <%= cycle("odd", "even") %>>
+  <tr class="<%= cycle("odd", "even") %> mousehide">
     <td><%= link_to category.name, category_path(category) %></td>
     <td><%= category.sort_order %></td>
     <td>
-      <%= edit_link_to edit_category_path(category) %>
-      <%= delete_link_to category, target: "Category #{category.name}" %>
+      <%= edit_link_to edit_category_path(category), class: "link" %>
+      <%= delete_link_to category, target: "Category #{category.name}", class: "link" %>
     </td>
   </tr>
 <% end %>

@@ -1,13 +1,13 @@
-<h1><%= character.name %> <%= edit_link_to edit_character_path(character) %></h1>
+<h1 class="mousehide"><%= character.name %> <%= edit_link_to edit_character_path(character), class: "link" %></h1>
 
-<h2>Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: 'n' %></h2>
+<h2 class="mousehide">Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: 'n', class: "link" %></h2>
 
 <% character.category_map.each do |cat, tags| -%>
 <p>
   <span class="label"><%= link_to cat.name, cat %>:</span>
   <ul class="sortable tags" xurl="<%= sort_character_tags_path(character) %>">
     <% tags.each do |tag| %>
-    <li id="tag_<%= tag.id %>">
+    <li id="tag_<%= tag.id %>" class="mousehide">
       <span class="handle"><%= image_tag('arrow_switch.png') %></span>
       <span class="data"><%= tag.value %></span>
       <span class="link"><%= edit_link_to edit_character_tag_path(character,tag) %></span>
