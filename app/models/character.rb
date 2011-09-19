@@ -1,10 +1,10 @@
 class Character < ActiveRecord::Base
-  has_many :tags, :dependent => :destroy do
+  has_many :tags, :dependent => :destroy, :order => "position" do
     def matching(cat)
       joins(:category).where("categories.name = ?", "aka")
     end
     def sorted
-      joins(:category).order("categories.sort_order, categories.name")
+      joins(:category).order("categories.sort_order, position")
     end
   end
 
@@ -24,7 +24,7 @@ class Character < ActiveRecord::Base
   #      [category_name, [value, value ...]]
   #
   # The categories will be listed in sort order and the values will be
-  # listed alphabetically.
+  # listed by position
   def category_map
     value_pairs = tags.map { |tag| [tag.category, tag] }.sort
     result = []

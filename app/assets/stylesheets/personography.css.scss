@@ -451,6 +451,11 @@ table.records .alt td {
     background: $alert-bg-color;
 }
 
+ul.sortable {
+    list-style-type: none;
+    .handle:hover { cursor: move; }
+}
+
 /* ERRORS */
 
 .field_with_errors {

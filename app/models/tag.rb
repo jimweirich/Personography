@@ -1,6 +1,7 @@
 class Tag < ActiveRecord::Base
   belongs_to :character
   belongs_to :category
+  acts_as_list :scope => :character
 
   validates_presence_of :category
   validates_presence_of :value
@@ -10,6 +11,6 @@ class Tag < ActiveRecord::Base
   end
 
   def <=>(other)
-    value <=> other.value
+    position <=> other.position
   end
 end

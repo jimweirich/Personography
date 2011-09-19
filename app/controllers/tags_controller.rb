@@ -77,4 +77,15 @@ class TagsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def sort
+    puts "DBG: params=#{params.inspect}"
+    if params['tag']
+      params['tag'].each_with_index do |tag_id, index|
+        tag = Tag.find(tag_id)
+        tag.update_attributes(position: index+1)
+      end
+    end
+    render :nothing => true
+  end
 end

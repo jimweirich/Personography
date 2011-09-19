@@ -20,7 +20,11 @@ Personography::Application.routes.draw do
   get "logout" => "sessions#destroy", :as => "logout"
 
   resources :characters do
-    resources :tags
+    resources :tags do
+      collection do
+        post "sort"
+      end
+    end
   end
 
   resources :categories
