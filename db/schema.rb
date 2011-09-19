@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20110919034636) do
 
   create_table "tags", :force => true do |t|
     t.integer  "character_id"
-    t.string   "value",        :null => false
+    t.string   "value",                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
-    t.integer  "position",     :null => false
+    t.integer  "position",     :default => 0, :null => false
   end
 
   create_table "users", :force => true do |t|
