@@ -39,9 +39,9 @@ describe Character do
     Given(:group) { Category.make(name: "group", sort_order: 10) }
     Given(:from)  { Category.make(name: "from",  sort_order: 20) }
 
-    Given(:t1) { Tag.new(category: group, value: 'B') }
-    Given(:t2) { Tag.new(category: group, value: 'A') }
-    Given(:t3) { Tag.new(category: from,  value: 'F') }
+    Given(:t1) { Tag.new(category: group, value: 'A', position: 2) }
+    Given(:t2) { Tag.new(category: group, value: 'B', position: 1) }
+    Given(:t3) { Tag.new(category: from,  value: 'F', position: 1) }
 
     Given { bob.tags << [t1, t2, t3] }
 
