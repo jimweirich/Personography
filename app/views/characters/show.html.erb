@@ -5,7 +5,7 @@
 <% character.category_map.each do |cat, tags| -%>
 <p>
   <span class="label"><%= link_to cat.name, cat %>:</span>
-  <ul class="sortable tags">
+  <ul class="sortable tags" xurl="<%= sort_character_tags_path(character) %>">
     <% tags.each do |tag| %>
     <li id="tag_<%= tag.id %>">
       <span class="handle"><%= image_tag('arrow_switch.png') %></span>

@@ -10,11 +10,11 @@ $ ->
     items: 'li',
     opacity: 0.4,
     scroll: true,
-    update: ->
+    update: (event, view) ->
       $.ajax
         type: 'post',
-        data: $('.tags').sortable('serialize'),
+        data: $(event.srcElement).parents('.sortable').sortable('serialize'),
         dataType: 'script',
         complete: (request) ->
-          $('#books').effect('highlight')
-        url: '/characters/1/tags/sort'
+          $(event.srcElement).parents('.sortable').effect('highlight')
+        url: $(event.srcElement).parents('.sortable').sortable('widget').attr('xurl')
