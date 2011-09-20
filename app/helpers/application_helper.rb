@@ -16,15 +16,35 @@ module ApplicationHelper
     Time.now.strftime("%Y")
   end
 
+  def drag_handle
+    if current_user
+      result = %{<span class="handle as-needed">#{image_tag('arrow_switch.png')}</span>} +
+        %{<span class="handle as-unneeded">&bull;</span>}
+    else
+      result = %{<span class="unhandle">&bull;</span>}
+    end
+    result.html_safe
+  end
+
   def add_link_to(text, url, options={})
-    link_to_with_image("add.png", text, url, options)
+    if current_user
+      link_to_with_image("add.png", text, url, options)
+    else
+      "&nbsp;".html_safe
+    end
   end
 
   def edit_link_to(url, options={})
-    link_to_with_image("edit.png", nil, url, options)
+    options ={class: "link as-needed"}.merge(options)
+    if current_user
+      link_to_with_image("edit.png", nil, url, options)
+    else
+      "&nbsp;".html_safe
+    end
   end
 
   def delete_link_to(url, options={})
+    options ={class: "link as-needed"}.merge(options)
     target = options.delete(:target)
     if target
       prompt = "You are about to delete #{target}, are you sure?"
@@ -32,7 +52,11 @@ module ApplicationHelper
       prompt = "Are you sure?"
     end
     opts = { :confirm => prompt, :method => :delete }.merge(options)
-    link_to_with_image("delete.png", nil, url, opts)
+    if current_user
+      link_to_with_image("delete.png", nil, url, opts)
+    else
+      "&nbsp;".html_safe
+    end
   end
 
   def link_to_with_image(image, text, url, options={})

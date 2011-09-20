@@ -8,8 +8,7 @@
   <ul class="sortable tags" xurl="<%= sort_character_tags_path(character) %>">
     <% tags.each do |tag| %>
     <li id="tag_<%= tag.id %>" class="mousehide">
-      <span class="handle as-needed"><%= image_tag('arrow_switch.png') %></span>
-      <span class="handle as-unneeded">&bull;</span>
+      <%= drag_handle %>
       <span class="data"><%= tag.value %></span>
       <span class="link"><%= edit_link_to edit_character_tag_path(character,tag), class: "as-needed" %></span>
       <span class="link"><%= delete_link_to character_tag_path(character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}", class: "as-needed" %></span>

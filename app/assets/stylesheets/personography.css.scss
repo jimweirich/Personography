@@ -458,7 +458,7 @@ ul.sortable {
     .handle.as-needed {
         padding-left: 0px;
     }
-    .handle.as-unneeded {
+    .handle.as-unneeded, .unhandle {
         padding-left: 10px;
     }
     li {

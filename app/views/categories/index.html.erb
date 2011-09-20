@@ -13,8 +13,8 @@
     <td><%= link_to category.name, category_path(category) %></td>
     <td><%= category.sort_order %></td>
     <td>
-      <%= edit_link_to edit_category_path(category), class: "link as-needed" %>
-      <%= delete_link_to category, target: "Category #{category.name}", class: "link as-needed" %>
+      <%= edit_link_to edit_category_path(category)  %>
+      <%= delete_link_to category, target: "Category #{category.name}"  %>
     </td>
   </tr>
 <% end %>

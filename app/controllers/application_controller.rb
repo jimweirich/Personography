@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
-  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate, :only => [:new, :create, :edit, :update, :destroy, :sort]
 
   before_filter :load_characters
   before_filter :load_categories
