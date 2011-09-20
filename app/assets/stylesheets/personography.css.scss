@@ -455,6 +455,16 @@ table.records .alt td {
 ul.sortable {
     list-style-type: none;
     .handle:hover { cursor: move; }
+    .handle.as-needed {
+        padding-left: 0px;
+    }
+    .handle.as-unneeded {
+        padding-left: 10px;
+    }
+    li {
+        text-indent: -23px;
+        margin-left: 0px;
+    }
 }
 
 /* ERRORS */

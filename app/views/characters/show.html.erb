@@ -1,6 +1,6 @@
-<h1 class="mousehide"><%= character.name %> <%= edit_link_to edit_character_path(character), class: "link" %></h1>
+<h1 class="mousehide"><%= character.name %> <%= edit_link_to edit_character_path(character), class: "link as-needed" %></h1>
 
-<h2 class="mousehide">Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: 'n', class: "link" %></h2>
+<h2 class="mousehide">Tags <%= add_link_to nil, new_character_tag_path(character), accesskey: 'n', class: "link as-needed" %></h2>
 
 <% character.category_map.each do |cat, tags| -%>
 <p>
@@ -8,10 +8,11 @@
   <ul class="sortable tags" xurl="<%= sort_character_tags_path(character) %>">
     <% tags.each do |tag| %>
     <li id="tag_<%= tag.id %>" class="mousehide">
-      <span class="handle"><%= image_tag('arrow_switch.png') %></span>
+      <span class="handle as-needed"><%= image_tag('arrow_switch.png') %></span>
+      <span class="handle as-unneeded">&bull;</span>
       <span class="data"><%= tag.value %></span>
-      <span class="link"><%= edit_link_to edit_character_tag_path(character,tag) %></span>
-      <span class="link"><%= delete_link_to character_tag_path(character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}"  %></span>
+      <span class="link"><%= edit_link_to edit_character_tag_path(character,tag), class: "as-needed" %></span>
+      <span class="link"><%= delete_link_to character_tag_path(character,tag), target: "the tag #{tag.name}=#{truncate(tag.value, limit: 10)}", class: "as-needed" %></span>
     </li>
     <% end %>
   </ul>
